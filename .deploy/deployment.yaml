@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-fastapi-project-skeleton
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: python-fastapi-project-skeleton
+  template:
+    metadata:
+      labels:
+        app: python-fastapi-project-skeleton
+    spec:
+      containers:
+        - name: python-fastapi-project-skeleton
+          image: quay.io/danisoi/fastapi-test:0.0.1
+          env:
+            - name: OPENAI_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: python-fastapi-project-skeleton
+                  key: openai-api-key
+          ports:
+            - containerPort: 8000
