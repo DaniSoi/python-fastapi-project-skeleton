@@ -1,6 +1,8 @@
 from fastapi.testclient import TestClient
 
-from python_fastapi_project_skeleton.api.cron.dependencies import get_cron_expression_generator
+from python_fastapi_project_skeleton.api.cron.dependencies import (
+    get_cron_expression_generator,
+)
 from python_fastapi_project_skeleton.app import get_app
 from python_fastapi_project_skeleton.config import Settings, get_settings
 from python_fastapi_project_skeleton.llms.cron.cron import CronExpressionGenerator
